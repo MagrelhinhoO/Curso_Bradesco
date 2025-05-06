@@ -5,7 +5,22 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ProcessoSeletivo {
     public static void main(String[] args) {
         System.out.println("Processo seletivo");
-        selecaoCandidatos();
+        imprimirSelecionados();
+    }
+    static void imprimirSelecionados(){
+        String [] candidatos = {"CLEMENTINA","VAN HELLSING","lADY GAGA","CELLBIT","RODOLFO"};
+
+        System.out.println("Imprimindo a lista de candidatos informando o indice do elemento");
+
+        for(int i=0;i< candidatos.length;i++){
+            System.out.println("O candidato de n° "+ (i+1) + " é "+ candidatos[i]);
+        }
+
+        System.out.println("Imprimindo os candidatos de forma abreviada com for each");
+
+        for (String candidato: candidatos){
+            System.out.println("O candidato selecionado foi "+ candidato);
+        }
     }
     static void selecaoCandidatos(){
         String [] candidatos = {"ARTHUR","JOÃO","SILVA","PEDRO","CLEMENTINA","VAN HELLSING","lADY GAGA","CELLBIT","MURILO","BLUEZÃO"};
@@ -17,10 +32,12 @@ public class ProcessoSeletivo {
             String candidato = candidatos[candidatoAtual];
             double salarioPretendido = valorPretendido();
 
-            System.out.printf("O candidato "+ candidato +" solicitou este valor de salário: R$"+ salarioPretendido);
+            System.out.println("O candidato "+ candidato +" solicitou este valor de salário: R$"+ salarioPretendido);
             if (salarioBase >= salarioPretendido){
                 System.out.println("O candidato "+ candidato +" foi selecionado para a vaga");
                 candidatosSelecionados++;
+            }else {
+                System.out.println("O candidato "+ candidato +" não foi selecionado para a vaga");
             }
             candidatoAtual++;
         }
